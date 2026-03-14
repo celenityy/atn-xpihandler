@@ -1,0 +1,32 @@
+{
+  "author": "celenity",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "atn-xpihandler@celenity.dev",
+      "strict_min_version": "91.0",
+      "data_collection_permissions": {
+        "required": [ "none" ]
+      }
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; base-uri 'none'; child-src 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; require-trusted-types-for 'script'; style-src 'none'; worker-src 'none'; upgrade-insecure-requests;"
+  },
+  "description": "Basic extension to support add-on installation from addons.thunderbird.net, without requiring the privileged mozAddonManager API",
+  "homepage_url": "https://codeberg.org/celenity/atn-xpihandler",
+  "manifest_version": 3,
+  "name": "ATN-XPIHandler",
+  "version": "0.0.1",
+  "host_permissions": [
+    "https://addons.thunderbird.net/user-media/addons/_attachments/*"
+  ],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking"
+  ]
+}
