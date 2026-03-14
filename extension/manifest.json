@@ -21,7 +21,7 @@
   "homepage_url": "https://codeberg.org/celenity/atn-xpihandler",
   "manifest_version": 3,
   "name": "ATN-XPIHandler",
-  "version": "0.0.1",
+  "version": "0.0.1.1",
   "host_permissions": [
     "https://addons.thunderbird.net/user-media/addons/_attachments/*"
   ],
