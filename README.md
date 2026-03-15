@@ -26,23 +26,24 @@ The recommended way to use ATN-XPIHandler is via [Dove](https://dove.celenity.de
     - You can get here by navigating to Thunderbird's `Settings` -> `General`, scrolling down to the very bottom, and selecting the `Config Editor...` button.
 
 **2**. Once there, you'll want to modify the following preferences:
-    - `extensions.webapi.enabled` -> `false`
-    - `privacy.resistFingerprinting.block_mozAddonManager` -> `true`
+
+- `extensions.webapi.enabled` -> `false`
+- `privacy.resistFingerprinting.block_mozAddonManager` -> `true`
 
 **3**. You will also need to remove `,addons.thunderbird.net` from the value of `extensions.webextensions.restrictedDomains`
 
 **4**. To ensure that only reputable extensions can run on `addons.thunderbird.net`, set it as a [`quarantined`](https://support.mozilla.org/kb/quarantined-domains) domain instead with the following preferences:
-    - `extensions.remoteSettings.disabled` -> `true`
-        - This preference will be hidden by default, so you'll need to manually create it.
-        - It's necessary to ensure that our list of quarantined domains isn't overridden remotely.
-    - `extensions.quarantinedDomains.enabled` -> `true` *(Default)*
-    - `extensions.quarantinedDomains.list` -> `addons.thunderbird.net`
+- `extensions.remoteSettings.disabled` -> `true`
+    - This preference will be hidden by default, so you'll need to manually create it.
+    - It's necessary to ensure that our list of quarantined domains isn't overridden remotely.
+- `extensions.quarantinedDomains.enabled` -> `true` *(Default)*
+- `extensions.quarantinedDomains.list` -> `addons.thunderbird.net`
 
 **5**. You should now proceed to install the extension *(Feel free to skip to the step **6** if you've already installed it)*.
-    - The simplest way to do this is by navigating to [`https://addons.thunderbird.net/addon/atn-xpihandler/`](https://addons.thunderbird.net/addon/atn-xpihandler/) from within your web browser, selecting `Download Now`, and saving the `.xpi` file locally to your device.
-    - From within Thunderbird, you should then navigate to [`about:addons`](about:addons).
-        - You can get here by navigating to Thunderbird's `Settings` -> `Add-ons and Themes` *(located on the bottom left)*.
-    - From the `Extensions` panel, select the gear to the right of `Manage Your Extensions`, select `Install Add-on From File...`, and select the `.xpi` file we previously downloaded. Be sure to select `Add` when prompted.
+- The simplest way to do this is by navigating to [`https://addons.thunderbird.net/addon/atn-xpihandler/`](https://addons.thunderbird.net/addon/atn-xpihandler/) from within your web browser, selecting `Download Now`, and saving the `.xpi` file locally to your device.
+- From within Thunderbird, you should then navigate to [`about:addons`](about:addons).
+    - You can get here by navigating to Thunderbird's `Settings` -> `Add-ons and Themes` *(located on the bottom left)*.
+- From the `Extensions` panel, select the gear to the right of `Manage Your Extensions`, select `Install Add-on From File...`, and select the `.xpi` file we previously downloaded. Be sure to select `Add` when prompted.
 
 **6**. After installation is complete, from the `Extensions` panel of [`about:addons`](about:addons), navigate to `ATN-XPIHandler` -> `Details`, and select `Allow` to the right of `Run on sites with restrictions`.
 
