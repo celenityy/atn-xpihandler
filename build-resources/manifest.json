@@ -17,7 +17,7 @@
   "content_security_policy": {
     "extension_pages": "default-src 'none'; base-uri 'none'; child-src 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; require-trusted-types-for 'script'; style-src 'none'; worker-src 'none'; upgrade-insecure-requests;"
   },
-  "description": "Basic extension to support add-on installation from addons.thunderbird.net, without requiring the privileged mozAddonManager API",
+  "description": "Basic extension to support add-on installation from addons.thunderbird.net, without requiring the privileged mozAddonManager API.",
   "homepage_url": "https://codeberg.org/celenity/atn-xpihandler",
   "manifest_version": 3,
   "name": "ATN-XPIHandler",
