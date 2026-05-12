@@ -8,7 +8,7 @@
 
 # If variables are defined with a custom `env_override.sh` file (located at the root project directory), let's use those
 ## These need to be set first, to ensure that they don't interfere with certain variables
-ATNXPI_ENV_OVERRIDE="${ATNXPI_ROOT}/env_override.sh"
+readonly ATNXPI_ENV_OVERRIDE="${ATNXPI_ROOT}/env_override.sh"
 if [[ -f "${ATNXPI_ENV_OVERRIDE}" ]]; then
     source "${ATNXPI_ENV_OVERRIDE}"
 fi
@@ -16,65 +16,91 @@ fi
 # ATN-XPIHandler
 
 # Scripts directory
-export ATNXPI_SCRIPTS="${ATNXPI_ROOT}/scripts"
+readonly ATNXPI_SCRIPTS="${ATNXPI_ROOT}/scripts"
+export ATNXPI_SCRIPTS
+
+## ATN-XPIHandler utilities
+readonly ATNXPI_UTILS="${ATNXPI_SCRIPTS}/utilities.sh"
+export ATNXPI_UTILS
 
 # Build directory
-ATNXPI_BUILD_DEFAULT="${ATNXPI_ROOT}/build"
+readonly ATNXPI_BUILD_DEFAULT="${ATNXPI_ROOT}/build"
 if [[ -z "${ATNXPI_BUILD+x}" ]]; then
-    export ATNXPI_BUILD="${ATNXPI_BUILD_DEFAULT}"
+    ATNXPI_BUILD="${ATNXPI_BUILD_DEFAULT}"
 fi
+readonly ATNXPI_BUILD
+export ATNXPI_BUILD
 
-# Set our platform, OS, and architecture
-export ATNXPI_ENV_HELPERS="${ATNXPI_SCRIPTS}/env_helpers.sh"
+# Set our platform and OS
+readonly ATNXPI_ENV_HELPERS="${ATNXPI_SCRIPTS}/env_helpers.sh"
+export ATNXPI_ENV_HELPERS
 source "${ATNXPI_ENV_HELPERS}"
 
 # Version info
-export ATNXPI_VERSIONS="${ATNXPI_SCRIPTS}/versions.sh"
+readonly ATNXPI_VERSIONS="${ATNXPI_SCRIPTS}/versions.sh"
+export ATNXPI_VERSIONS
 
 # Build resources directory
-export ATNXPI_BUILD_RESOURCES="${ATNXPI_ROOT}/build-resources"
+readonly ATNXPI_BUILD_RESOURCES="${ATNXPI_ROOT}/build-resources"
+export ATNXPI_BUILD_RESOURCES
 
 # Outputs directory
-ATNXPI_OUTPUTS_DEFAULT="${ATNXPI_ROOT}/outputs"
+readonly ATNXPI_OUTPUTS_DEFAULT="${ATNXPI_ROOT}/outputs"
 if [[ -z "${ATNXPI_OUTPUTS+x}" ]]; then
-    export ATNXPI_OUTPUTS="${ATNXPI_OUTPUTS_DEFAULT}"
+    ATNXPI_OUTPUTS="${ATNXPI_OUTPUTS_DEFAULT}"
 fi
+readonly ATNXPI_OUTPUTS
+export ATNXPI_OUTPUTS
 
 # Should we create a log file for package.sh? (Default)
-ATNXPI_LOG_PACKAGE_DEFAULT=1
+readonly ATNXPI_LOG_PACKAGE_DEFAULT=1
 if [[ -z "${ATNXPI_LOG_PACKAGE+x}" ]]; then
-    export ATNXPI_LOG_PACKAGE="${ATNXPI_LOG_PACKAGE_DEFAULT}"
+    ATNXPI_LOG_PACKAGE="${ATNXPI_LOG_PACKAGE_DEFAULT}"
 fi
+readonly ATNXPI_LOG_PACKAGE
+export ATNXPI_LOG_PACKAGE
 
 # Directory where we should store log files (if logging is desired)
-ATNXPI_LOG_DIR_DEFAULT="${ATNXPI_BUILD}/logs"
+readonly ATNXPI_LOG_DIR_DEFAULT="${ATNXPI_BUILD}/logs"
 if [[ -z "${ATNXPI_LOG_DIR+x}" ]]; then
-    export ATNXPI_LOG_DIR="${ATNXPI_LOG_DIR_DEFAULT}"
+    ATNXPI_LOG_DIR="${ATNXPI_LOG_DIR_DEFAULT}"
 fi
+readonly ATNXPI_LOG_DIR
+export ATNXPI_LOG_DIR
 
 # GNU sed
 if [[ "${ATNXPI_OS}" == 'osx' ]]; then
-    ATNXPI_SED_DEFAULT='gsed'
+    readonly ATNXPI_SED_DEFAULT='gsed'
 else
-    ATNXPI_SED_DEFAULT='sed'
+    readonly ATNXPI_SED_DEFAULT='sed'
 fi
 if [[ -z "${ATNXPI_SED+x}" ]]; then
-    export ATNXPI_SED="${ATNXPI_SED_DEFAULT}"
+    ATNXPI_SED="${ATNXPI_SED_DEFAULT}"
 fi
+readonly ATNXPI_SED
+export ATNXPI_SED
 
 # GNU tar
 if [[ "${ATNXPI_OS}" == 'osx' ]]; then
-    ATNXPI_TAR_DEFAULT='gtar'
+    readonly ATNXPI_TAR_DEFAULT='gtar'
 else
-    ATNXPI_TAR_DEFAULT='tar'
+    readonly ATNXPI_TAR_DEFAULT='tar'
 fi
 if [[ -z "${ATNXPI_TAR+x}" ]]; then
-    export ATNXPI_TAR="${ATNXPI_TAR_DEFAULT}"
+    ATNXPI_TAR="${ATNXPI_TAR_DEFAULT}"
 fi
+readonly ATNXPI_TAR
+export ATNXPI_TAR
 
 # ATN-XPIHandler add-on ID
-ATNXPI_ADDON_ID_DEFAULT='atn-xpihandler@celenity.dev'
+readonly ATNXPI_ADDON_ID_DEFAULT='atn-xpihandler@celenity.dev'
 if [[ -z "${ATNXPI_ADDON_ID+x}" ]]; then
     # By default, use "atn-xpihandler@celenity.dev" for the add-on ID
-    export ATNXPI_ADDON_ID="${ATNXPI_ADDON_ID_DEFAULT}"
+    ATNXPI_ADDON_ID="${ATNXPI_ADDON_ID_DEFAULT}"
 fi
+readonly ATNXPI_ADDON_ID
+export ATNXPI_ADDON_ID
+
+# We've now set our environment variables...
+readonly ATNXPI_SET_ENVS=1
+export ATNXPI_SET_ENVS

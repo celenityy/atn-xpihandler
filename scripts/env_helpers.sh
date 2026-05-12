@@ -1,25 +1,27 @@
 
 # Set platform
 if [[ "${OSTYPE}" == "darwin"* ]]; then
-    export ATNXPI_PLATFORM='darwin'
+    readonly ATNXPI_PLATFORM='darwin'
 else
-    export ATNXPI_PLATFORM='linux'
+    readonly ATNXPI_PLATFORM='linux'
 fi
+export ATNXPI_PLATFORM
 
 # Set OS
 if [[ "${ATNXPI_PLATFORM}" == 'darwin' ]]; then
-    export ATNXPI_OS='osx'
+    readonly ATNXPI_OS='osx'
 elif [[ "${ATNXPI_PLATFORM}" == 'linux' ]]; then
     if [[ -f "/etc/os-release" ]]; then
         source /etc/os-release
         if [[ -n "${ID}" ]]; then
-            export ATNXPI_OS="${ID}"
+            readonly ATNXPI_OS="${ID}"
         else
-            export ATNXPI_OS='unknown'
+            readonly ATNXPI_OS='unknown'
         fi
     else
-        export ATNXPI_OS='unknown'
+        readonly ATNXPI_OS='unknown'
     fi
 else
-    export ATNXPI_OS='unknown'
+    readonly ATNXPI_OS='unknown'
 fi
+export ATNXPI_OS

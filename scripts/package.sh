@@ -3,13 +3,16 @@
 set -euo pipefail
 
 # Set-up our environment
-bash -x $(dirname $0)/env.sh
+if [[ -z "${ATNXPI_SET_ENVS+x}" ]]; then
+    bash -x $(dirname $0)/env.sh
+fi
 source $(dirname $0)/env.sh
 
 # Package ATN-XPIHandler
-export ATNXPI_FROM_PACKAGE=1
+readonly ATNXPI_FROM_PACKAGE=1
+export ATNXPI_FROM_PACKAGE
 if [ "${ATNXPI_LOG_PACKAGE}" == 1 ]; then
-    PACKAGE_LOG_FILE="${ATNXPI_LOG_DIR}/package.log"
+    readonly PACKAGE_LOG_FILE="${ATNXPI_LOG_DIR}/package.log"
 
     # If the log file already exists, remove it
     if [ -f "${PACKAGE_LOG_FILE}" ]; then

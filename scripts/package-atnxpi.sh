@@ -3,8 +3,10 @@
 set -euo pipefail
 
 # Set-up our environment
-bash -x $(dirname $0)/env.sh
 source $(dirname $0)/env.sh
+
+# Include utilities
+source "${ATNXPI_UTILS}"
 
 if [[ -z "${ATNXPI_FROM_PACKAGE+x}" ]]; then
     echo_red_text 'ERROR: Do not call package-atnxpi.sh directly. Instead, use package.sh.' >&1
