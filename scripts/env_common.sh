@@ -53,20 +53,37 @@ readonly ATNXPI_OUTPUTS
 export ATNXPI_OUTPUTS
 
 # ATN-XPIHandler add-on ID
-readonly ATNXPI_ADDON_ID_DEFAULT='atn-xpihandler@celenity.dev'
+readonly ATNXPI_ADDON_ID_DEFAULT='atn-xpihandler-direct@celenity.dev'
 if [[ -z "${ATNXPI_ADDON_ID+x}" ]]; then
     ATNXPI_ADDON_ID="${ATNXPI_ADDON_ID_DEFAULT}"
 fi
 readonly ATNXPI_ADDON_ID
 export ATNXPI_ADDON_ID
 
-# Should we create a log file for package.sh? (Default)
-readonly ATNXPI_LOG_PACKAGE_DEFAULT=1
-if [[ -z "${ATNXPI_LOG_PACKAGE+x}" ]]; then
-    ATNXPI_LOG_PACKAGE="${ATNXPI_LOG_PACKAGE_DEFAULT}"
+# ATN-XPIHandler (ATN) add-on ID
+readonly ATNXPI_ATN_ADDON_ID_DEFAULT='atn-xpihandler@celenity.dev'
+if [[ -z "${ATNXPI_ATN_ADDON_ID+x}" ]]; then
+    ATNXPI_ATN_ADDON_ID="${ATNXPI_ATN_ADDON_ID_DEFAULT}"
 fi
-readonly ATNXPI_LOG_PACKAGE
-export ATNXPI_LOG_PACKAGE
+readonly ATNXPI_ATN_ADDON_ID
+export ATNXPI_ATN_ADDON_ID
+
+# ATN-XPIHandler update URL
+readonly ATNXPI_UPDATE_URL_DEFAULT='https:/releases.celenity.dev/addons/updates.json'
+if [[ -z "${ATNXPI_UPDATE_URL+x}" ]]; then
+    # By default, use our update URL
+    ATNXPI_UPDATE_URL="${ATNXPI_UPDATE_URL_DEFAULT}"
+fi
+readonly ATNXPI_UPDATE_URL
+export ATNXPI_UPDATE_URL
+
+# Should we create a log file for build.sh? (Default)
+readonly ATNXPI_LOG_BUILD_DEFAULT=1
+if [[ -z "${ATNXPI_LOG_BUILD+x}" ]]; then
+    ATNXPI_LOG_BUILD="${ATNXPI_LOG_BUILD_DEFAULT}"
+fi
+readonly ATNXPI_LOG_BUILD
+export ATNXPI_LOG_BUILD
 
 # Directory where we should store log files (if logging is desired)
 readonly ATNXPI_LOG_DIR_DEFAULT="${ATNXPI_BUILD}/logs"
@@ -75,6 +92,18 @@ if [[ -z "${ATNXPI_LOG_DIR+x}" ]]; then
 fi
 readonly ATNXPI_LOG_DIR
 export ATNXPI_LOG_DIR
+
+# GNU awk
+if [[ "${ATNXPI_OS}" == 'osx' ]]; then
+    readonly ATNXPI_AWK_DEFAULT='gawk'
+else
+    readonly ATNXPI_AWK_DEFAULT='awk'
+fi
+if [[ -z "${UBIRD_AWK+x}" ]]; then
+    ATNXPI_AWK="${ATNXPI_AWK_DEFAULT}"
+fi
+readonly ATNXPI_AWK
+export ATNXPI_AWK
 
 # GNU sed
 if [[ "${ATNXPI_OS}" == 'osx' ]]; then

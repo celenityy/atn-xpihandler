@@ -11,7 +11,8 @@
       "strict_min_version": "128.0",
       "data_collection_permissions": {
         "required": [ "none" ]
-      }
+      },
+      "update_url": "{ATNXPI_UPDATE_URL}"
     }
   },
   "content_security_policy": {

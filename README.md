@@ -68,7 +68,7 @@ As the purpose of ATN-XPIHandler is to improve privacy and security for users, i
 To "build"/package ATN-XPIHandler, from the **root** of the ATN-XPIHandler repository, simply run:
 
 ```sh
-bash -x scripts/package.sh
+bash -x scripts/build.sh
 ```
 
 And enjoy! :)
