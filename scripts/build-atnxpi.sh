@@ -61,7 +61,7 @@ if [[ -z "${ATNXPI_VERSION}" ]]; then
     exit 1
 fi
 
-echo_green_text "Preparing to package ATN-XPIHandler ${ATNXPI_VERSION}"
+echo_green_text "Preparing to build ATN-XPIHandler ${ATNXPI_VERSION}"
 
 # Create build directories
 mkdir -p "${ATNXPI_BUILD}"
