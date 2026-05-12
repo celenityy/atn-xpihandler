@@ -32,7 +32,7 @@ echo_green_text "Preparing to package ATN-XPIHandler ${ATNXPI_VERSION}"
 mkdir -p "${ATNXPI_BUILD}"
 mkdir -p "${ATNXPI_OUTPUTS}"
 
-cp -f "${ATNXPI_BUILD_RESOURCES}/manifest.json" "${ATNXPI_ROOT}/extension/manifest.json"
+cp -f "${ATNXPI_TEMPLATES}/manifest.json" "${ATNXPI_ROOT}/extension/manifest.json"
 
 # Set add-on ID
 "${ATNXPI_SED}" -i -e "s|{ATNXPI_ADDON_ID}|${ATNXPI_ADDON_ID}|g" "${ATNXPI_ROOT}/extension/manifest.json"

@@ -19,6 +19,10 @@ fi
 readonly ATNXPI_SCRIPTS="${ATNXPI_ROOT}/scripts"
 export ATNXPI_SCRIPTS
 
+# Templates
+readonly ATNXPI_TEMPLATES="${ATNXPI_ROOT}/templates"
+export ATNXPI_TEMPLATES
+
 ## ATN-XPIHandler utilities
 readonly ATNXPI_UTILS="${ATNXPI_SCRIPTS}/utilities.sh"
 export ATNXPI_UTILS
@@ -40,10 +44,6 @@ source "${ATNXPI_ENV_HELPERS}"
 readonly ATNXPI_VERSIONS="${ATNXPI_SCRIPTS}/versions.sh"
 export ATNXPI_VERSIONS
 
-# Build resources directory
-readonly ATNXPI_BUILD_RESOURCES="${ATNXPI_ROOT}/build-resources"
-export ATNXPI_BUILD_RESOURCES
-
 # Outputs directory
 readonly ATNXPI_OUTPUTS_DEFAULT="${ATNXPI_ROOT}/outputs"
 if [[ -z "${ATNXPI_OUTPUTS+x}" ]]; then
@@ -51,6 +51,14 @@ if [[ -z "${ATNXPI_OUTPUTS+x}" ]]; then
 fi
 readonly ATNXPI_OUTPUTS
 export ATNXPI_OUTPUTS
+
+# ATN-XPIHandler add-on ID
+readonly ATNXPI_ADDON_ID_DEFAULT='atn-xpihandler@celenity.dev'
+if [[ -z "${ATNXPI_ADDON_ID+x}" ]]; then
+    ATNXPI_ADDON_ID="${ATNXPI_ADDON_ID_DEFAULT}"
+fi
+readonly ATNXPI_ADDON_ID
+export ATNXPI_ADDON_ID
 
 # Should we create a log file for package.sh? (Default)
 readonly ATNXPI_LOG_PACKAGE_DEFAULT=1
@@ -91,15 +99,6 @@ if [[ -z "${ATNXPI_TAR+x}" ]]; then
 fi
 readonly ATNXPI_TAR
 export ATNXPI_TAR
-
-# ATN-XPIHandler add-on ID
-readonly ATNXPI_ADDON_ID_DEFAULT='atn-xpihandler@celenity.dev'
-if [[ -z "${ATNXPI_ADDON_ID+x}" ]]; then
-    # By default, use "atn-xpihandler@celenity.dev" for the add-on ID
-    ATNXPI_ADDON_ID="${ATNXPI_ADDON_ID_DEFAULT}"
-fi
-readonly ATNXPI_ADDON_ID
-export ATNXPI_ADDON_ID
 
 # We've now set our environment variables...
 readonly ATNXPI_SET_ENVS=1
