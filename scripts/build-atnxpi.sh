@@ -19,13 +19,13 @@ readonly target="$1"
 ATNXPI_BUILD_ATN=0
 ATNXPI_BUILD_DIRECT=0
 
-if [ "${target}" == 'atn' ]; then
+if [[ "${target}" == 'atn' ]]; then
     # Build ATN-XPIHandler (ATN)
     ATNXPI_BUILD_ATN=1
-elif [ "${target}" == 'direct' ]; then
+elif [[ "${target}" == 'direct' ]]; then
     # Build ATN-XPIHandler (Self-distribution)
     ATNXPI_BUILD_DIRECT=1
-elif [ "${target}" == 'all' ]; then
+elif [[ "${target}" == 'all' ]]; then
     # If no argument is specified (or argument is set to "all"), just build both
     ATNXPI_BUILD_ATN=1
     ATNXPI_BUILD_DIRECT=1
@@ -42,14 +42,14 @@ readonly ATNXPI_BUILD_DIRECT
 # Include version info
 source "${ATNXPI_VERSIONS}"
 
-if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
     if [[ -z "${ATNXPI_ATN_ADDON_ID}" ]]; then
         echo "\${ATNXPI_ATN_ADDON_ID} is not set! Aborting..."
         exit 1
     fi
 fi
 
-if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
     if [[ -z "${ATNXPI_ADDON_ID}" ]]; then
         echo "\${ATNXPI_ADDON_ID} is not set! Aborting..."
         exit 1
@@ -65,19 +65,19 @@ echo_green_text "Preparing to build ATN-XPIHandler ${ATNXPI_VERSION}"
 
 # Create build directories
 mkdir -p "${ATNXPI_BUILD}"
-if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
     mkdir -p "${ATNXPI_OUTPUTS}/atn"
 fi
-if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
     mkdir -p "${ATNXPI_OUTPUTS}/direct"
 fi
 
 function set_version() {
     # Set version
-    if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
         "${ATNXPI_SED}" -i -e "s|{ATNXPI_VERSION}|${ATNXPI_VERSION}|g" "${ATNXPI_OUTPUTS}/atn/manifest.json"
     fi
-    if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
         "${ATNXPI_SED}" -i -e "s|{ATNXPI_VERSION}|${ATNXPI_VERSION}|g" "${ATNXPI_OUTPUTS}/direct/manifest.json"
     fi
 }
@@ -86,7 +86,7 @@ function prep_atnxpi() {
     # ATN-XPIHandler
     echo_red_text 'Preparing your build environment...'
 
-    if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
         if [[ -f "${ATNXPI_OUTPUTS}/atn/background.js" ]]; then
             rm "${ATNXPI_OUTPUTS}/atn/background.js"
         fi
@@ -98,7 +98,7 @@ function prep_atnxpi() {
         cp -f "${ATNXPI_TEMPLATES}/manifest-atn.json" "${ATNXPI_OUTPUTS}/atn/manifest.json"
     fi
 
-    if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
         if [[ -f "${ATNXPI_OUTPUTS}/direct/background.js" ]]; then
             rm "${ATNXPI_OUTPUTS}/direct/background.js"
         fi
@@ -114,10 +114,10 @@ function prep_atnxpi() {
     fi
 
     # Set add-on ID
-    if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
         "${ATNXPI_SED}" -i -e "s|{ATNXPI_ADDON_ID}|${ATNXPI_ATN_ADDON_ID}|g" "${ATNXPI_OUTPUTS}/atn/manifest.json"
     fi
-    if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
         "${ATNXPI_SED}" -i -e "s|{ATNXPI_ADDON_ID}|${ATNXPI_ADDON_ID}|g" "${ATNXPI_OUTPUTS}/direct/manifest.json"
     fi
 
@@ -129,20 +129,20 @@ function build_atnxpi() {
     echo_red_text "Building ATN-XPIHandler ${ATNXPI_VERSION}..."
 
     if [[ "${ATNXPI_OS}" == 'osx' ]]; then
-        if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+        if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
             /usr/sbin/dot_clean -mv "${ATNXPI_OUTPUTS}/atn"
         fi
-        if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+        if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
             /usr/sbin/dot_clean -mv "${ATNXPI_OUTPUTS}/direct"
         fi
     fi
 
-    if [ "${ATNXPI_BUILD_ATN}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_ATN}" == 1 ]]; then
         pushd "${ATNXPI_OUTPUTS}/atn"
         zip -r -FS "${ATNXPI_OUTPUTS}/atn-xpihandler-${ATNXPI_VERSION}-atn-unsigned.xpi" *
         popd
     fi
-    if [ "${ATNXPI_BUILD_DIRECT}" == 1 ]; then
+    if [[ "${ATNXPI_BUILD_DIRECT}" == 1 ]]; then
         pushd "${ATNXPI_OUTPUTS}/direct"
         zip -r -FS "${ATNXPI_OUTPUTS}/atn-xpihandler-${ATNXPI_VERSION}-unsigned.xpi" *
         popd

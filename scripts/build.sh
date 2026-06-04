@@ -18,11 +18,11 @@ fi
 # Build ATN-XPIHandler
 readonly ATNXPI_FROM_BUILD=1
 export ATNXPI_FROM_BUILD
-if [ "${ATNXPI_LOG_BUILD}" == 1 ]; then
+if [[ "${ATNXPI_LOG_BUILD}" == 1 ]]; then
     readonly BUILD_LOG_FILE="${ATNXPI_LOG_DIR}/build.log"
 
     # If the log file already exists, remove it
-    if [ -f "${BUILD_LOG_FILE}" ]; then
+    if [[ -f "${BUILD_LOG_FILE}" ]]; then
         rm "${BUILD_LOG_FILE}"
     fi
 
