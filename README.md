@@ -4,7 +4,11 @@ ATN-XPIHandler is a basic extension to support add-on installation from [`addons
 
 It works by simply removing the `content-disposition` header for `.xpi` files downloaded from [`addons.thunderbird.net`](https://addons.thunderbird.net/).
 
-# Motivation
+## Download
+
+ATN-XPIHandler can be downloaded from [`https://addons.thunderbird.net`](https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/), or directly from [`https://releases.celenity.dev`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi).
+
+## Motivation
 
 Currently, installation of add-ons from [`addons.thunderbird.net`](https://addons.thunderbird.net/) requires use of the privileged `mozAddonManager` API *([1](https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4), [2](https://bugzilla.mozilla.org/show_bug.cgi?id=1384330))*. This is problematic from a privacy and security perspective, as it:
 
@@ -18,7 +22,7 @@ Currently, installation of add-ons from [`addons.thunderbird.net`](https://addon
 
 [`addons.mozilla.org`](https://addons.mozilla.org/) also uses the `mozAddonManager` API for add-on installation, **however**, unlike [`addons.thunderbird.net`](https://addons.thunderbird.net/), when `mozAddonManager` is disabled, installation of extensions will continue to work as expected, by falling back to the standard mechanisms. This unfortunately doesn't typically work on [`addons.thunderbird.net`](https://addons.thunderbird.net/), due to their decision to set the `content-disposition` header for downloaded `.xpi` files *(See related upstream bug [here](https://github.com/thunderbird/addons-server/issues/332))*.
 
-# Usage Guide
+## Usage Guide
 
 The recommended way to use ATN-XPIHandler is via [Dove](https://dove.celenity.dev/), where it is installed by default. **That being said**, with a little set-up, ATN-XPIHandler can *also* be used on standard Thunderbird installations:
 
@@ -40,7 +44,7 @@ The recommended way to use ATN-XPIHandler is via [Dove](https://dove.celenity.de
 - `extensions.quarantinedDomains.list` -> `addons.thunderbird.net`
 
 **5**. You should now proceed to install the extension *(Feel free to skip to the step **6** if you've already installed it)*.
-- The simplest way to do this is by navigating to [`https://addons.thunderbird.net/addon/atn-xpihandler/`](https://addons.thunderbird.net/addon/atn-xpihandler/) from within your web browser, selecting `Download Now`, and saving the `.xpi` file locally to your device.
+- The simplest way to do this is by navigating to [`https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/`](https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/) from within your web browser, selecting `Download Now`, and saving the `.xpi` file locally to your device.
 - From within Thunderbird, you should then navigate to [`about:addons`](about:addons).
     - You can get here by navigating to Thunderbird's `Settings` -> `Add-ons and Themes` *(located on the bottom left)*.
 - From the `Extensions` panel, select the gear to the right of `Manage Your Extensions`, select `Install Add-on From File...`, and select the `.xpi` file we previously downloaded. Be sure to select `Add` when prompted.
@@ -51,7 +55,7 @@ The recommended way to use ATN-XPIHandler is via [Dove](https://dove.celenity.de
 
 **NOTE**: Because we have now set `addons.thunderbird.net` as a quarantined domain, you will need to repeat step **`6`** for any extension that you'd like to be able to run on `addons.thunderbird.net`, such as content blockers.
 
-# Privacy and Security Consideration
+## Privacy and Security Consideration
 
 As the purpose of ATN-XPIHandler is to improve privacy and security for users, it is designed with privacy and security in mind:
 
@@ -63,7 +67,7 @@ As the purpose of ATN-XPIHandler is to improve privacy and security for users, i
 - ATN-XPIHandler only requires the following permissions: `webRequest` and `webRequestBlocking`.
 - ATN-XPIHandler uses [Manifest V3](https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/).
 
-# Build (Package)
+## Build (Package)
 
 To "build"/package ATN-XPIHandler, from the **root** of the ATN-XPIHandler repository, simply run:
 
@@ -73,7 +77,7 @@ bash -x scripts/build.sh
 
 And enjoy! :)
 
-# Licensing
+## Licensing
 
 Contents of this repo are licensed under the [Mozilla Public License 2.0](https://spdx.org/licenses/MPL-2.0.html) *(`MPL-2.0`)* where applicable.
 
