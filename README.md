@@ -11,9 +11,9 @@ ATN-XPIHandler can be downloaded from [`https://addons.thunderbird.net`](https:/
 - Latest release: [`https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi)
 - By version *(Replace `{VERSION}` with your desired version)*: [`https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi`](https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi)
 
-`https://addons.thunderbird.net` add-on ID: **`atn-xpihandler@celenity.dev`**
-
 `https://releases.celenity.dev` add-on ID: **`atn-xpihandler-direct@celenity.dev`**
+
+`https://addons.thunderbird.net` add-on ID: **`atn-xpihandler@celenity.dev`**
 
 ## Motivation
 
