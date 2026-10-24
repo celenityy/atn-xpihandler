@@ -6,7 +6,10 @@ It works by simply removing the `content-disposition` header for `.xpi` files do
 
 ## Download
 
-ATN-XPIHandler can be downloaded from [`https://addons.thunderbird.net`](https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/), or directly from [`https://releases.celenity.dev`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi).
+ATN-XPIHandler can be downloaded from [`https://addons.thunderbird.net`](https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/), or directly from `https://releases.celenity.dev`:
+
+- Latest release: [`https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi)
+- By version *(Replace `{VERSION}` with your desired version)*: [`https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi`](https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi)
 
 ## Motivation
 
