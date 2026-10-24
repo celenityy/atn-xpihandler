@@ -11,6 +11,10 @@ ATN-XPIHandler can be downloaded from [`https://addons.thunderbird.net`](https:/
 - Latest release: [`https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi)
 - By version *(Replace `{VERSION}` with your desired version)*: [`https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi`](https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi)
 
+`https://addons.thunderbird.net` add-on ID: **`atn-xpihandler@celenity.dev`**
+
+`https://releases.celenity.dev` add-on ID: **`atn-xpihandler-direct@celenity.dev`**
+
 ## Motivation
 
 Currently, installation of add-ons from [`addons.thunderbird.net`](https://addons.thunderbird.net/) requires use of the privileged `mozAddonManager` API *([1](https://bugzilla.mozilla.org/show_bug.cgi?id=1952390#c4), [2](https://bugzilla.mozilla.org/show_bug.cgi?id=1384330))*. This is problematic from a privacy and security perspective, as it:
