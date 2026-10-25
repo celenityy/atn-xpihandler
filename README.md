@@ -6,10 +6,9 @@ It works by simply removing the `content-disposition` header for `.xpi` files do
 
 ## Download
 
-ATN-XPIHandler can be downloaded from [`https://addons.thunderbird.net`](https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/), or directly from `https://releases.celenity.dev`:
+ATN-XPIHandler can be downloaded from [`https://addons.celenity.dev`](https://addons.celenity.dev/addons/atn-xpihandler/) or [`https://addons.thunderbird.net`](https://addons.thunderbird.net/thunderbird/addon/atn-xpihandler/), or directly from `https://releases.celenity.dev`:
 
-- Latest release: [`https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi)
-- By version *(Replace `{VERSION}` with your desired version)*: [`https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi`](https://releases.celenity.dev/addons/homedirector/releases/{VERSION}/homedirector-{VERSION}.xpi)
+Additionally, a link always pointing to the latest release can be found at: [`https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi`](https://releases.celenity.dev/addons/atn-xpihandler/releases/atn-xpihandler-latest.xpi).
 
 `https://releases.celenity.dev` add-on ID: **`atn-xpihandler-direct@celenity.dev`**
 
